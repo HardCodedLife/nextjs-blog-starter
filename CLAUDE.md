@@ -96,3 +96,28 @@ This allows importing from `src/` using the `@/` alias:
 ```typescript
 import Component from '@/app/components/Component'
 ```
+
+## Node.js Version Management
+
+### .nvmrc Configuration
+The project includes a `.nvmrc` file to lock the Node.js version for consistency across development environments:
+
+```
+22.15.0
+```
+
+### Usage with NVM
+If you have NVM (Node Version Manager) installed, you can automatically use the correct Node.js version:
+
+```bash
+# Use the version specified in .nvmrc
+nvm use
+
+# Install the version if not already installed
+nvm install
+```
+
+### Benefits
+- **Consistency**: Ensures all team members use the same Node.js version
+- **CI/CD**: Prevents version-related issues in deployment pipelines
+- **Compatibility**: Guarantees compatibility with Next.js 15.5.2 and dependencies
