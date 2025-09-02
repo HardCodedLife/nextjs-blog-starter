@@ -55,3 +55,44 @@ For VS Code, install the ESLint and Prettier extensions. Add to your settings.js
 ✅ Build working locally and on Vercel
 ✅ ESLint and Prettier integration complete
 ✅ TypeScript 5.x compatibility confirmed
+
+## Project Structure
+
+### Source Directory Organization
+The project uses Next.js `src` directory structure for better code organization:
+
+```
+nextjs-blog-starter/
+├── src/
+│   └── app/           # App Router pages, layouts, and components
+│       ├── favicon.ico
+│       ├── globals.css
+│       ├── layout.tsx
+│       └── page.tsx
+├── public/            # Static assets
+└── [config files]     # Configuration files at root
+```
+
+### Benefits of `src` Directory
+- **Clean separation**: Source code isolated from configuration files
+- **Better organization**: All application code centralized in `src/`
+- **Import optimization**: `@/` alias maps to `./src/*` for clean imports
+- **Industry standard**: Follows common React/TypeScript project patterns
+
+### Path Mapping Configuration
+TypeScript configuration in `tsconfig.json`:
+```json
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx", ".next/types/**/*.ts"]
+}
+```
+
+This allows importing from `src/` using the `@/` alias:
+```typescript
+import Component from '@/app/components/Component'
+```
