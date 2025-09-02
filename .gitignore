@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# editor and formatting
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# linting and formatting cache
+.eslintcache
