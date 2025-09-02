@@ -10,7 +10,20 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...compat.config({
+    extends: ['next/core-web-vitals', 'prettier'],
+    rules: {
+      // React/Next.js specific
+      "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off",
+      
+      // Code quality
+      "prefer-const": "error",
+      "no-var": "error",
+      "no-console": "warn",
+      "eqeqeq": "error"
+    }
+  }),
   {
     ignores: [
       "node_modules/**",
@@ -18,8 +31,9 @@ const eslintConfig = [
       "out/**",
       "build/**",
       "next-env.d.ts",
+      "*.config.*",
     ],
-  },
-];
+  }
+]
 
-export default eslintConfig;
+export default eslintConfig
